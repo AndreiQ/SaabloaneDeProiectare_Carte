@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Carte {
@@ -5,19 +6,21 @@ public class Carte {
 	private String titlu;
 	private Cuprins cuprins;
 	private List<Autor> autori;
-	private List<Capitol> capitole;
+	private ArrayList<Element> continut = new ArrayList<Element>();
 	
-	
-	public Carte(String titlu,Cuprins cuprins, List<Autor> autori, List<Capitol> capitole) {
+	public Carte(String titlu, Cuprins cuprins, List<Autor> autori) {
 		this.titlu = titlu;
-		this.cuprins = cuprins;
 		this.autori = autori;
-		this.capitole = capitole;
+		this.cuprins = cuprins;
 	}
-
-
-	@Override
-	public String toString() {
-		return "Carte [titlu=" + titlu + ", cuprins=" + cuprins + ", autori=" + autori + ", capitole=" + capitole + "]";
+	public void addElement(Element e){
+		if(e != null){
+			continut.add(e);
+		}
+	}
+	public void print(){
+		for(Element e : continut){
+			e.print();
+		}
 	}
 }
